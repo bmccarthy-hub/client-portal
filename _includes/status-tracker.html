@@ -1,0 +1,21 @@
+<!--
+  Renders a horizontal progress tracker from page.status.
+  Valid values (set in each client's front matter): design, proofing, approved, printing, complete
+-->
+{% assign steps = "design,proofing,approved,printing,complete" | split: "," %}
+{% assign step_labels = "Design,Proofing,Approved,Printing,Complete" | split: "," %}
+{% assign found_current = false %}
+
+<ol class="status-tracker">
+  {% for step in steps %}
+    {% assign label = step_labels[forloop.index0] %}
+    {% if step == page.status %}
+      <li class="active">{{ label }}</li>
+      {% assign found_current = true %}
+    {% elsif found_current %}
+      <li class="upcoming">{{ label }}</li>
+    {% else %}
+      <li class="done">{{ label }}</li>
+    {% endif %}
+  {% endfor %}
+</ol>

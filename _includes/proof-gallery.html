@@ -1,0 +1,22 @@
+<div class="proof-gallery">
+  {% for proof in page.proofs %}
+  <article class="proof-card">
+    <img src="{{ proof.image | relative_url }}" alt="{{ proof.title }}" loading="lazy">
+    <div class="proof-body">
+      <h2>{{ proof.title }}</h2>
+      {% if proof.notes %}<p class="proof-notes">{{ proof.notes }}</p>{% endif %}
+
+      <form class="feedback-form" action="https://formspree.io/f/{{ page.feedback_form_id }}" method="POST">
+        <input type="hidden" name="client" value="{{ page.client_name }}">
+        <input type="hidden" name="proof" value="{{ proof.title }}">
+        <input type="hidden" name="_subject" value="{{ page.client_name }} — {{ proof.title }}">
+        <textarea name="comment" placeholder="Notes for Brigitte (optional)" rows="2"></textarea>
+        <div class="feedback-actions">
+          <button type="submit" name="action" value="Approved" class="approve">Approve</button>
+          <button type="submit" name="action" value="Requested changes" class="request-changes">Request changes</button>
+        </div>
+      </form>
+    </div>
+  </article>
+  {% endfor %}
+</div>

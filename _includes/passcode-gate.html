@@ -1,0 +1,12 @@
+<div id="passcode-gate" class="passcode-gate">
+  <form id="passcode-form" class="passcode-form" autocomplete="off">
+    <h1>{{ page.client_name }}</h1>
+    <p class="hint">This page is just for you. Enter your passcode to continue.</p>
+    <input type="password" id="gate-passcode" name="passcode" placeholder="Passcode" required>
+    <button type="submit">Unlock</button>
+    <p id="gate-error" class="error" hidden>That passcode isn't quite right — check your welcome email and try again.</p>
+  </form>
+</div>
+
+<script src="{{ '/assets/js/crypto-utils.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/passcode.js' | relative_url }}"></script>
