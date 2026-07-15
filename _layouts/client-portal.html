@@ -1,0 +1,23 @@
+---
+layout: default
+---
+{% include nav.html %}
+
+<main class="portal"
+      data-slug="{{ page.slug }}"
+      data-hash="{{ page.passcode_hash }}">
+
+  {% include passcode-gate.html %}
+
+  <div id="portal-content" class="portal-content" hidden>
+    <header class="portal-header">
+      <h1>{{ page.client_name }}</h1>
+      {% if page.wedding_date %}<p class="wedding-date">{{ page.wedding_date | date: "%B %-d, %Y" }}</p>{% endif %}
+    </header>
+
+    {% include status-tracker.html %}
+    {% include proof-gallery.html %}
+
+    <p class="portal-note">Approvals and comments go straight to Brigitte's inbox — no separate account needed.</p>
+  </div>
+</main>

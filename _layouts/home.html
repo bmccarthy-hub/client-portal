@@ -1,0 +1,16 @@
+---
+layout: default
+---
+{% include nav.html %}
+
+<main class="marketing">
+  <section class="hero">
+    <h1>{{ site.title }}</h1>
+    <p class="tagline">{{ site.description }}</p>
+    <a class="cta" href="{{ '/login/' | relative_url }}">View Your Proofs →</a>
+  </section>
+
+  <section class="content">
+    {{ content }}
+  </section>
+</main>

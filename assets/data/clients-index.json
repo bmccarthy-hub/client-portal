@@ -1,0 +1,15 @@
+---
+# Front matter (even empty) is what tells Jekyll to run this file
+# through Liquid before publishing it. Do not remove.
+---
+[
+  {% for client in site.clients %}
+  {
+    "username": {{ client.username | jsonify }},
+    "slug": {{ client.slug | jsonify }},
+    "passcode_hash": {{ client.passcode_hash | jsonify }},
+    "client_name": {{ client.client_name | jsonify }},
+    "url": {{ client.url | absolute_url | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

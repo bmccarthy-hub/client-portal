@@ -1,0 +1,173 @@
+:root {
+  --cream: #faf6f1;
+  --blush: #e9d6cd;
+  --rose: #c9a49a;
+  --ink: #3a332f;
+  --muted: #7a7069;
+  --accent: #a9705f;
+  --line: #e4dad2;
+  --font-serif: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
+
+h1, h2 { font-family: var(--font-serif); font-weight: normal; }
+
+a { color: var(--accent); }
+
+/* Nav */
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.site-nav .brand { font-family: var(--font-serif); font-size: 1.25rem; text-decoration: none; color: var(--ink); }
+.site-nav a { text-decoration: none; font-size: 0.95rem; }
+
+/* Marketing / home */
+.marketing .hero {
+  text-align: center;
+  padding: 5rem 1.5rem 3rem;
+}
+.marketing .hero h1 { font-size: 2.75rem; margin-bottom: 0.5rem; }
+.marketing .tagline { color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem; }
+.marketing .cta {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.marketing .content {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  color: var(--muted);
+}
+
+/* Login */
+.login-page { display: flex; justify-content: center; padding: 4rem 1.5rem; }
+.login-form {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 380px;
+}
+.login-form h1 { margin-top: 0; font-size: 1.6rem; }
+.login-form .hint { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+.login-form label { display: block; font-size: 0.85rem; margin: 1rem 0 0.35rem; color: var(--muted); }
+.login-form input, .passcode-form input, .feedback-form textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.login-form button, .passcode-form button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.error { color: #a33; font-size: 0.85rem; margin-top: 0.75rem; }
+
+/* Passcode gate on a client page */
+.passcode-gate { display: flex; justify-content: center; padding: 5rem 1.5rem; }
+.passcode-form {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+/* Client portal content */
+.portal-content { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+.portal-header { text-align: center; margin-bottom: 2rem; }
+.portal-header h1 { font-size: 2.25rem; margin-bottom: 0.25rem; }
+.wedding-date { color: var(--muted); }
+
+.status-tracker {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.status-tracker li {
+  flex: 1;
+  text-align: center;
+  padding: 0.85rem 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-right: 1px solid var(--line);
+}
+.status-tracker li:last-child { border-right: none; }
+.status-tracker li.done { color: var(--accent); }
+.status-tracker li.active {
+  color: #fff;
+  background: var(--accent);
+  font-weight: bold;
+}
+
+.proof-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+.proof-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.proof-card img { width: 100%; display: block; }
+.proof-body { padding: 1.25rem; }
+.proof-body h2 { font-size: 1.15rem; margin: 0 0 0.4rem; }
+.proof-notes { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
+.feedback-form textarea { resize: vertical; margin-bottom: 0.75rem; }
+.feedback-actions { display: flex; gap: 0.6rem; }
+.feedback-actions button {
+  flex: 1;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.approve { background: var(--accent); color: #fff; }
+.request-changes { background: var(--blush); color: var(--ink); }
+
+.portal-note { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 2.5rem; }
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 2rem 1.5rem;
+}

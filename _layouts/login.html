@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{% include nav.html %}
+
+<main class="login-page">
+  <form id="login-form" class="login-form" autocomplete="off">
+    <h1>Client Login</h1>
+    <p class="hint">Enter the username and passcode from your welcome email.</p>
+
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="passcode">Passcode</label>
+    <input type="password" id="passcode" name="passcode" required>
+
+    <button type="submit">View My Proofs</button>
+    <p id="login-error" class="error" hidden>That username/passcode combination doesn't match. Double-check your welcome email, or reach out to Brigitte.</p>
+  </form>
+</main>
+
+<script src="{{ '/assets/js/crypto-utils.js' | relative_url }}"></script>
+<script>
+  const CLIENTS_INDEX_URL = "{{ '/assets/data/clients-index.json' | relative_url }}";
+</script>
+<script src="{{ '/assets/js/login.js' | relative_url }}"></script>
