@@ -1,6 +1,5 @@
 ---
-# Front matter (even empty) is what tells Jekyll to run this file
-# through Liquid before publishing it. Do not remove.
+# Front matter (even empty) tells Jekyll to run this file through Liquid.
 ---
 [
   {% for client in site.clients %}

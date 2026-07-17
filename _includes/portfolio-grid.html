@@ -1,0 +1,17 @@
+<!--
+  Renders a grid of portfolio pieces.
+  Pass an "items" array of _portfolio docs, and optionally a "max" number
+  to cap how many render (used for the homepage teaser).
+-->
+{% assign grid_max = include.max | default: 999 %}
+<div class="portfolio-grid">
+  {% for piece in include.items limit: grid_max %}
+  <figure class="portfolio-piece">
+    <img src="{{ piece.image | relative_url }}" alt="{{ piece.title }}" loading="lazy">
+    <figcaption>
+      <span class="piece-title">{{ piece.title }}</span>
+      {% if piece.category %}<span class="piece-category">{{ piece.category }}</span>{% endif %}
+    </figcaption>
+  </figure>
+  {% endfor %}
+</div>

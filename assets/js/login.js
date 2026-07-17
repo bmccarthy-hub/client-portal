@@ -1,6 +1,3 @@
-// Central login: looks up the username in the public client index,
-// checks the passcode hash, and — if it matches — redirects straight
-// to that client's private page and marks it unlocked for this session.
 (function () {
   const form = document.getElementById("login-form");
   const errorMsg = document.getElementById("login-error");

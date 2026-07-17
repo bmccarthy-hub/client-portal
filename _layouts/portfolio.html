@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{% include nav.html %}
+
+<main class="portfolio-page">
+  <header class="page-header">
+    <h1>Portfolio</h1>
+    <p class="page-intro">{{ content }}</p>
+  </header>
+
+  {% assign grouped = site.portfolio | group_by: "category" %}
+  {% for group in grouped %}
+  <section class="portfolio-category">
+    <h2>{{ group.name }}</h2>
+    {% include portfolio-grid.html items=group.items %}
+  </section>
+  {% endfor %}
+
+  {% include inquiry-form.html %}
+</main>

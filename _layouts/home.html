@@ -3,14 +3,25 @@ layout: default
 ---
 {% include nav.html %}
 
+<header class="hero">
+  <p class="eyebrow">Wedding Invitations &amp; Fine Paper Goods</p>
+  <h1>{{ site.title }}</h1>
+  <p class="tagline">{{ page.tagline | default: site.description }}</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="{{ '/portfolio/' | relative_url }}">View the Portfolio</a>
+    <a class="btn-secondary" href="{{ '/#inquire' | relative_url }}">Inquire</a>
+  </div>
+</header>
+
 <main class="marketing">
-  <section class="hero">
-    <h1>{{ site.title }}</h1>
-    <p class="tagline">{{ site.description }}</p>
-    <a class="cta" href="{{ '/login/' | relative_url }}">View Your Proofs →</a>
+  {{ content }}
+
+  <section class="portfolio-teaser">
+    <h2>Recent Work</h2>
+    {% assign featured = site.portfolio | where: "featured", true %}
+    {% include portfolio-grid.html items=featured max=6 %}
+    <a class="view-all" href="{{ '/portfolio/' | relative_url }}">View the full portfolio →</a>
   </section>
 
-  <section class="content">
-    {{ content }}
-  </section>
+  {% include inquiry-form.html %}
 </main>

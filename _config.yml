@@ -1,17 +1,23 @@
 title: La Fête Studio
 description: Wedding invitations & paper goods — with a private client proofing portal
-url: "https://www.lafetestudio.com" # your custom domain — update if it differs, see README
-baseurl: "" # leave blank when using a custom domain
+url: "https://www.lafetestudio.com" # your custom domain
+baseurl: ""
 
-# Studio contact shown in the footer of every page
 studio_email: "brigitte@lafetestudio.com"
 
-# Jekyll collection: every file in _clients/ becomes its own static page
-# at /clients/<slug>/  — this is what makes each client's portal unique.
+# One shared inquiry form for the homepage (separate from each client's
+# per-proof feedback form, which lives in that client's own file).
+inquiry_form_id: "YOUR_INQUIRY_FORM_ID"
+
+# Every file in _clients/ becomes its own static page at /clients/<slug>/
+# Every file in _portfolio/ is a work sample — used on the homepage teaser
+# and the full /portfolio/ page, but doesn't get its own URL (output: false).
 collections:
   clients:
     output: true
     permalink: /clients/:path/
+  portfolio:
+    output: false
 
 defaults:
   - scope:
@@ -27,9 +33,11 @@ defaults:
       path: "login.md"
     values:
       layout: login
+  - scope:
+      path: "portfolio.md"
+    values:
+      layout: portfolio
 
-# Keep this list minimal — GitHub Pages builds with its own restricted
-# Jekyll + plugin whitelist when you push directly (no custom Action).
 plugins: []
 
 exclude:

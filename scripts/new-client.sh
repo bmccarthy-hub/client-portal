@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
-# Scaffold a new client portal page.
-# Run from the repo root: ./scripts/new-client.sh
 set -euo pipefail
 
 read -rp "Client-facing name (e.g. 'Sarah & James'): " CLIENT_NAME
 read -rp "URL slug (e.g. smith-jones-2026 — lowercase, hyphens only): " SLUG
-read -rp "Login username (e.g. smithjones — what they'll type on /login/): " USERNAME
+read -rp "Login username (e.g. smithjones): " USERNAME
 read -rp "Wedding date (YYYY-MM-DD): " WEDDING_DATE
 read -rsp "Passcode to give the client (won't be stored in plain text): " PASSCODE
 echo
-read -rp "Formspree form ID (see README — leave blank to fill in later): " FORM_ID
+read -rp "Formspree form ID (leave blank to fill in later): " FORM_ID
 
 if [[ -z "$SLUG" || -z "$USERNAME" || -z "$PASSCODE" ]]; then
   echo "Slug, username, and passcode are required. Aborting." >&2
@@ -34,9 +32,8 @@ slug: ${SLUG}
 username: ${USERNAME}
 client_name: "${CLIENT_NAME}"
 wedding_date: "${WEDDING_DATE}"
-status: design               # design | proofing | approved | printing | complete
+status: design
 
-# SHA-256 hash of the passcode. Never write the plain passcode here.
 passcode_hash: "${PASSCODE_HASH}"
 
 feedback_form_id: "${FORM_ID:-YOUR_FORM_ID}"
@@ -50,9 +47,9 @@ EOF
 
 echo
 echo "Created ${CLIENT_FILE}"
-echo "Drop this client's proof images into ${IMAGE_DIR}/ and list them under 'proofs' in that file."
+echo "Drop this client's proof images into ${IMAGE_DIR}/ and list them under 'proofs'."
 echo
 echo "Give the client:"
-echo "  Portal:   https://YOUR-DOMAIN/login/"
+echo "  Portal:   https://www.lafetestudio.com/login/"
 echo "  Username: ${USERNAME}"
-echo "  Passcode: (the one you just typed — it is not saved anywhere in plain text)"
+echo "  Passcode: (the one you just typed — not saved anywhere in plain text)"

@@ -1,5 +1,3 @@
-// Fallback gate for a client page when someone lands on it directly
-// (bookmarked link, shared link) instead of coming through /login/.
 (function () {
   const portal = document.querySelector(".portal");
   if (!portal) return;
@@ -15,7 +13,6 @@
     content.hidden = false;
   }
 
-  // Already unlocked this session via /login/ or a previous correct entry?
   if (sessionStorage.getItem(unlockKey) === expectedHash) {
     reveal();
     return;

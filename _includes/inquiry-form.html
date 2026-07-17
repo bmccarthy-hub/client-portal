@@ -1,0 +1,44 @@
+<div id="inquire" class="inquiry-section">
+  <h2>Start an Inquiry</h2>
+  <p class="inquiry-intro">Tell me a little about your celebration and I'll be in touch within a few days.</p>
+
+  <form class="inquiry-form" action="https://formspree.io/f/{{ site.inquiry_form_id }}" method="POST">
+    <input type="hidden" name="_subject" value="New inquiry — La Fête Studio">
+
+    <div class="field-row">
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" required>
+      </label>
+    </div>
+
+    <div class="field-row">
+      <label>
+        Wedding date
+        <input type="text" name="wedding_date" placeholder="e.g. October 2026, or TBD">
+      </label>
+      <label>
+        How did you hear about La Fête?
+        <select name="referral">
+          <option value="">Select one</option>
+          <option>Instagram</option>
+          <option>Pinterest</option>
+          <option>Referral from a friend/vendor</option>
+          <option>Google search</option>
+          <option>Other</option>
+        </select>
+      </label>
+    </div>
+
+    <label class="full-width">
+      Tell me about your celebration
+      <textarea name="message" rows="4" placeholder="Vision, guest count, anything you'd like me to know..."></textarea>
+    </label>
+
+    <button type="submit">Send Inquiry</button>
+  </form>
+</div>

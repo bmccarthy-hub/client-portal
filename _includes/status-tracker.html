@@ -1,7 +1,3 @@
-<!--
-  Renders a horizontal progress tracker from page.status.
-  Valid values (set in each client's front matter): design, proofing, approved, printing, complete
--->
 {% assign steps = "design,proofing,approved,printing,complete" | split: "," %}
 {% assign step_labels = "Design,Proofing,Approved,Printing,Complete" | split: "," %}
 {% assign found_current = false %}
